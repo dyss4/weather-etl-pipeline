@@ -13,7 +13,9 @@ def extract_data():
         print(f"[{datetime.now()}] Memulai Extract data dari Open-Meteo...")
         response = requests.get(url)
         response.raise_for_status() 
-        return response.json()
+        data_mentah = response.json()
+        print(f"[{datetime.now()}] Data berhasil diambil: {data_mentah}")
+        return data_mentah
     except requests.exceptions.RequestException as e:
         print(f"Error saat Extract data: {e}")
         return None
